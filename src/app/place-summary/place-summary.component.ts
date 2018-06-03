@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import Place from "../models/place";
 
 @Component({
     selector: 'place-summary',
@@ -12,5 +13,5 @@ export class PlaceSummaryComponent{
     }
 
     @Input('info')
-    info: any;
+    info: Place;
 }

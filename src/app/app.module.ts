@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core'; 
 
@@ -10,9 +11,12 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 @NgModule({
   imports: [
-    BrowserModule, RouterModule.forRoot(routes), AgmCoreModule.forRoot({
+    BrowserModule, 
+    RouterModule.forRoot(routes), 
+    AgmCoreModule.forRoot({
         apiKey: 'AIzaSyBRHD3VAgZYT2DZ29JfuZkdKBDIw8xxw8c'
-      })
+      }),
+    HttpModule
   ],
   declarations: [
     AppComponent,
