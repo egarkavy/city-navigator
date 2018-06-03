@@ -1,6 +1,16 @@
-<div class="map">
+<div class="home">
+    <div class="map">
+        <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="mapClick($event)">
+            <agm-marker *ngFor="let place of places" [latitude]="place.latitude" [longitude]="place.longitude" (markerClick)="onPlaceCkick(place)">
 
-</div>
-<div class="navigation">
+            </agm-marker>
+        </agm-map>
+    </div>
+    <div class="navigation">
+        <div *ngFor="let filteredCategory of filteredCategories">
+            <place-summary [info]="filteredCategory">
 
+            </place-summary>
+        </div>
+    </div>
 </div>
