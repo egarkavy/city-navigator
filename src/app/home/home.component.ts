@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import Place from "../models/place";
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'home',
@@ -15,7 +15,7 @@ export class HomeComponent{
 
     filteredCategories: Place[] = [];
 
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
         this.places.push(
             new Place(51.678418, 7.809007),
             new Place(51.66990177064556, 7.809007),
@@ -25,7 +25,7 @@ export class HomeComponent{
 
         this.filteredCategories = this.places.filter(x => x.category === 1);
         debugger;
-        this.http.get("http://localhost:91/api/api/values/get")
+        this.http.get("http://localhost:60000/api/places")
             .subscribe(places => {
                 debugger;
             });
