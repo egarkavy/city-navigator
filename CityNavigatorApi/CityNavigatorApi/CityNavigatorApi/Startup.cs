@@ -2,20 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CityNavigator.Services;
+using CityNavigator.Services.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using AutoMapper;
+using CityNavigator.Services.Helpers;
 
 namespace CityNavigatorApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            Configuration = configuration;
+            //Configuration = configuration;
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("conf.json");
+
+            Configuration = builder.Build();
+            ConfigurationManager.Configuration = Configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -25,6 +36,13 @@ namespace CityNavigatorApi
         {
             services.AddMvc();
             services.AddCors();
+
+
+            MappingsHelper.Configure();
+
+            services.AddTransient<IMongoRepository, Repository>();
+            services.AddTransient<IMongoContext, MongoContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

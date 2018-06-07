@@ -1,3 +1,13 @@
 <div class="place-summary">
-    {{info.latitude}}
+    <a routerLink="place-details/{{info.name}}">
+        {{info.name}}
+    </a>
+    <div>
+        <strong>
+                {{info.Address}}
+        </strong>
+    </div>
+    <p>
+        {{info.Summury}}
+    </p>
 </div>

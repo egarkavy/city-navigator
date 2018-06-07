@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlaceSummaryComponent } from './place-summary/place-summary.component';
+import { PlaceDetails } from './place-details/place-details.component';
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -21,7 +22,8 @@ import { routes } from './app.routes';
   declarations: [
     AppComponent,
     HomeComponent,
-    PlaceSummaryComponent
+    PlaceSummaryComponent,
+    PlaceDetails
   ],
   bootstrap: [ AppComponent ]
 })

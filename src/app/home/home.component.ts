@@ -17,10 +17,10 @@ export class HomeComponent{
 
     constructor(private http: HttpClient) {
         this.places.push(
-            new Place(51.678418, 7.809007),
-            new Place(51.66990177064556, 7.809007),
-            new Place(51.67141745840093, 7.809009, 2),
-            new Place(51.66990177064556, 7.813079059977781, 3)
+            new Place(51.678418, 7.809007, 1),
+            new Place(51.66990177064556, 7.809007, 2),
+            new Place(51.67141745840093, 7.809009, 2, 3),
+            new Place(51.66990177064556, 7.813079059977781, 3, 4)
         );
 
         this.filteredCategories = this.places.filter(x => x.category === 1);
