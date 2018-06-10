@@ -1,9 +1,26 @@
 export default class Place {
 
-    description: string;
-    img: string;
+    objectId: string;
+    name: string;
+    categoryId: string;
+    location: LocationViewModel;
+    tittle: string;
+    shortDescription: string;
+    metaDescription: string;
+    advDescription: string;
+    htmlContent: string;
+    woringHours: string[];
+    addresses: string[];
+    phoneNumbers: string[];
 
-    constructor(public latitude: number, public longitude: number, public id = 1, public category: number = 1, public name: string = "test") {
+    comments: Comment[];
+}
+class LocationViewModel {
+    coordinates: number[];
+}
 
-    }
+class Comment {
+    commentator: string;
+    commentText: string;
+    mark: number;
 }

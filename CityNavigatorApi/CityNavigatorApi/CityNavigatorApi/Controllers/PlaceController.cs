@@ -27,5 +27,6 @@ namespace CityNavigatorApi.Controllers
             var result = Mapper.Map<List<PlaceViewModel>>(databaseList);
             return result;
         }
+
     }
 }

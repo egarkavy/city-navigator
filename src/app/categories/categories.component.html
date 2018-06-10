@@ -1,0 +1,20 @@
+<div>
+    <div>
+        <mat-form-field>
+            <mat-select placeholder="Выберите категорию">
+                <mat-option *ngFor="let category of categories" [value]="activeCategory">
+                {{ category.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-select placeholder="Выберите подкатегорию">
+                <mat-option *ngFor="let subcategory of activeCategory.subCategories" [value]="activeSubCategory" (selectionChange)="fireSubCategory()">
+                {{ subcategory.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>

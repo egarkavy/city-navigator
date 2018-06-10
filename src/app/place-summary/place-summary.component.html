@@ -1,13 +1,13 @@
 <div class="place-summary">
-    <a routerLink="place-details/{{info.name}}">
+    <a class="navigation" routerLink="place-details/{{info.name}}">
         {{info.name}}
     </a>
     <div>
-        <strong>
-                {{info.Address}}
+        <strong class="addresses">
+                {{info.addresses.join(', ')}}
         </strong>
     </div>
-    <p>
-        {{info.Summury}}
+    <p class="desctiption">
+        {{info.shortDescription}}
     </p>
 </div>

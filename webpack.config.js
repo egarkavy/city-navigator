@@ -53,6 +53,14 @@ module.exports = {
                     'sass-loader'
                 ]
             },
+            { 
+                test: /\.css$/,
+                exclude: [path.resolve(__dirname, "src/styles")],
+                use: [
+                    'to-string-loader',
+                    'css-loader'
+                ]
+            },
             {
                 test: /\.ts$/,
                 use: [

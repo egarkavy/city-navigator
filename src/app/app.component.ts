@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import '../styles/styles.scss';
+import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 @Component({
     selector: 'my-app',

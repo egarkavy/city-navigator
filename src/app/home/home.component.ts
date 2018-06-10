@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
 import Place from "../models/place";
 import { HttpClient } from '@angular/common/http';
+import { Category, SubCategory } from '../models/category'
+import { Observable } from "rxjs";
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'home',
@@ -8,36 +11,38 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent{ 
-    latitude: number = 51.678418;
-    longitude: number = 7.809007;
-    map: any;
+    latitude: number = 53.9121867;
+    longitude: number = 27.5811648;
+
     places: Place[] = [];
+    categories: Category[] = [];
 
     filteredCategories: Place[] = [];
 
     constructor(private http: HttpClient) {
-        this.places.push(
-            new Place(51.678418, 7.809007, 1),
-            new Place(51.66990177064556, 7.809007, 2),
-            new Place(51.67141745840093, 7.809009, 2, 3),
-            new Place(51.66990177064556, 7.813079059977781, 3, 4)
-        );
-
-        this.filteredCategories = this.places.filter(x => x.category === 1);
         debugger;
-        this.http.get("http://localhost:60000/api/places")
-            .subscribe(places => {
-                debugger;
+        const placesObserver = this.http.get<Place[]>("http://localhost:60000/api/places");
+        const categoriesObserver = this.http.get<Category[]>('http://localhost:60000/api/category');
+
+        categoriesObserver.subscribe(categories => {
+                
+                placesObserver.subscribe(places => {
+                    debugger;
+                    this.places = places;
+
+                    this.categories = categories;
+
+                    this.filterCategories(this.categories[0].subcategories[0].id);
+                });
+                
             });
     }
 
-    mapClick($event) {
-        var t = this.map;
-        debugger;
+    filterCategories(subcategoryId: string) {
+        this.filteredCategories = this.places.filter(x => x.categoryId === subcategoryId);
     }
 
-    onPlaceCkick(place) {
-        var t = this.map;
-        debugger;
+    onChangeSubcateroty(sub: SubCategory){
+        this.filterCategories(sub.id);
     }
 }
