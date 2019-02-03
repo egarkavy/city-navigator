@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
     templateUrl: './place-details.component.html',
     styleUrls: ['./place-details.component.scss']
 })
-export class PlaceDetails{
+export class PlaceDetailsComponent{
 
     placeId: Number
     place: Place;
@@ -25,7 +25,7 @@ export class PlaceDetails{
         .subscribe(place => {
             debugger;
             place;
-        })
+        });
 
     }
 }

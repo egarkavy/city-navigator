@@ -8,7 +8,8 @@ import { MatSelectModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlaceSummaryComponent } from './place-summary/place-summary.component';
-import { PlaceDetails } from './place-details/place-details.component';
+import { PlaceDetailsComponent } from './place-details/place-details.component';
+import { CategoriesComponent } from './categories/categories.component'
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -27,7 +28,8 @@ import { routes } from './app.routes';
     AppComponent,
     HomeComponent,
     PlaceSummaryComponent,
-    PlaceDetails
+    PlaceDetailsComponent,
+    CategoriesComponent
   ],
   bootstrap: [ AppComponent ]
 })

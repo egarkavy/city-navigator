@@ -1,18 +1,6 @@
-.home {
-    display: flex;
-    height: 100%;
-    
-    .map {
-        width: 50%;
-        height: 100%;
-    
-        agm-map {
-            height: 100%;
-        }
-    }
-
-    .navigation {
-        width: 50%;
-        height: 100%;
-    }
+.on-the-map-filter {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    background-color: white;
 }

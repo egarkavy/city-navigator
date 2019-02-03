@@ -20,14 +20,12 @@ export class HomeComponent{
     filteredCategories: Place[] = [];
 
     constructor(private http: HttpClient) {
-        debugger;
         const placesObserver = this.http.get<Place[]>("http://localhost:60000/api/places");
         const categoriesObserver = this.http.get<Category[]>('http://localhost:60000/api/category');
 
         categoriesObserver.subscribe(categories => {
                 
                 placesObserver.subscribe(places => {
-                    debugger;
                     this.places = places;
 
                     this.categories = categories;
@@ -38,8 +36,8 @@ export class HomeComponent{
             });
     }
 
-    filterCategories(subcategoryId: string) {
-        this.filteredCategories = this.places.filter(x => x.categoryId === subcategoryId);
+    filterCategories(subcategoryId: any) {
+        this.filteredCategories = this.places.filter(x => x.categoryId.increment === subcategoryId.increment);
     }
 
     onChangeSubcateroty(sub: SubCategory){

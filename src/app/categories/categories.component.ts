@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Category, SubCategory } from "../models/category";
 
 @Component({
@@ -14,10 +14,14 @@ export class CategoriesComponent{
 
     }
 
+    @Output()
+    onSubcategorySelect = new EventEmitter<SubCategory>();
+
     @Input()
-    onSubcategorySelect: Function
+    categories: Category[]
 
     fireSubCategory() {
-        this.onSubcategorySelect(SubCategory);
+        var t = this.activeCategory;
+        this.onSubcategorySelect.emit(this.activeSubCategory);
     }
 }

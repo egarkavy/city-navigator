@@ -1,17 +1,17 @@
-<div>
+<div class="on-the-map-filter">
     <div>
         <mat-form-field>
-            <mat-select placeholder="Выберите категорию">
-                <mat-option *ngFor="let category of categories" [value]="activeCategory">
+            <mat-select placeholder="Выберите категорию" [(value)]="activeCategory">
+                <mat-option *ngFor="let category of categories" [value]="category">
                 {{ category.name }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field>
-            <mat-select placeholder="Выберите подкатегорию">
-                <mat-option *ngFor="let subcategory of activeCategory.subCategories" [value]="activeSubCategory" (selectionChange)="fireSubCategory()">
+        <mat-form-field *ngIf="activeCategory">
+            <mat-select placeholder="Выберите подкатегорию" [(value)]="activeSubCategory" (selectionChange)="fireSubCategory()">
+                <mat-option *ngFor="let subcategory of activeCategory.subcategories" [value]="subcategory">
                 {{ subcategory.name }}
                 </mat-option>
             </mat-select>

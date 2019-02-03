@@ -25,13 +25,12 @@ namespace CityNavigatorApi.Controllers
         [HttpGet]
         public List<CategoryViewModel> Get()
         {
-            var categories =
+            var categories = 
 
                 (from category in repository.Query<Category>()
                  join sub in repository.Query<SubCategory>() on category.Id equals sub.CategoryId
                  into subC
-                 select new { category, subC }).ToList();
-
+                 select new Category { Id = category.Id, Name = category.Name, Other = category.Other, Subcategories = subC }).ToList();
 
             var result = Mapper.Map<List<CategoryViewModel>>(categories);
             return result;

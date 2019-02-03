@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component"
-import { PlaceDetails } from "./place-details/place-details.component";
+import { PlaceDetailsComponent } from "./place-details/place-details.component";
 
 export const routes: Routes = [
     {
@@ -14,7 +14,7 @@ export const routes: Routes = [
     },
     {
         path: "place-details/:id",
-        component: PlaceDetails
+        component: PlaceDetailsComponent
     }
 
 ];

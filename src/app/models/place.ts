@@ -2,7 +2,7 @@ export default class Place {
 
     objectId: string;
     name: string;
-    categoryId: string;
+    categoryId: any;
     location: LocationViewModel;
     tittle: string;
     shortDescription: string;
