@@ -57,7 +57,7 @@ module.exports = {
                 test: /\.css$/,
                 exclude: [path.resolve(__dirname, "src/styles")],
                 use: [
-                    'to-string-loader',
+                    'style-loader',
                     'css-loader'
                 ]
             },
